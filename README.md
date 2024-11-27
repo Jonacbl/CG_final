@@ -9,7 +9,7 @@
 
 
 
-![image-20241127164940705](C:/Users/23947/AppData/Roaming/Typora/typora-user-images/image-20241127164940705.png)
+![image-20241127164940705](.\readme\include.png)
 
 链接器-输入中添加：
 
@@ -18,6 +18,6 @@ glfw3.lib
 assimp-vc143-mtd.lib
 ```
 
-![image-20241127165120819](C:/Users/23947/AppData/Roaming/Typora/typora-user-images/image-20241127165120819.png)
+![image-20241127165120819](.\readme\linker.png)
 
 即可运行。
