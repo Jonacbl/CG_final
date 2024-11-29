@@ -13,7 +13,7 @@
 
 
 
-![](README/include.png)
+![](./README/include.png)
 
 链接器-输入中添加：
 
@@ -22,7 +22,7 @@ glfw3.lib
 assimp-vc143-mtd.lib
 ```
 
-![](README/linker.png)
+![](./README/linker.png)
 
 即可在`.sln`运行中运行，目前只实现了静态加载`assimp`和动画assimp。
 
