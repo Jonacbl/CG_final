@@ -25,3 +25,5 @@ assimp-vc143-mtd.lib
 ![](README/linker.png)
 
 即可在`.sln`运行中运行，目前只实现了静态加载`assimp`和动画assimp。
+
+有人来了test
