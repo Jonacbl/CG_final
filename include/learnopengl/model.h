@@ -177,8 +177,8 @@ private:
         {
             aiString str;
             mat->GetTexture(type, i, &str);
-            cout << "Loading texture: " << str.C_Str() << endl; // 输出纹理路径
-            // check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
+            //cout << "Loading texture: " << str.C_Str() << endl; // 输出纹理路径
+            //check if texture was loaded before and if so, continue to next iteration: skip loading a new texture
             bool skip = false;
             for(unsigned int j = 0; j < textures_loaded.size(); j++)
             {

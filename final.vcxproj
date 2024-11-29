@@ -137,14 +137,9 @@
     <ClCompile Include="stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\animodel.h" />
     <ClInclude Include="include\learnopengl\mesh.h" />
     <ClInclude Include="include\learnopengl\model.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shader\1.model_loading.vs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="shader\1.model_loading.fs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

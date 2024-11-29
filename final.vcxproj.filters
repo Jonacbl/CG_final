@@ -32,15 +32,8 @@
     <ClInclude Include="include\learnopengl\model.h">
       <Filter>头文件</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="shader\1.model_loading.vs">
-      <Filter>资源文件</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="shader\1.model_loading.fs">
-      <Filter>资源文件</Filter>
-    </Text>
+    <ClInclude Include="include\animodel.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

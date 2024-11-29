@@ -7,7 +7,9 @@
 
 #include <learnopengl/shader_m.h>
 #include <learnopengl/camera.h>
-#include <learnopengl/model.h>
+
+#include <learnopengl/model_animation.h>
+#include <learnopengl/animator.h>
 
 #include <iostream>
 
@@ -17,8 +19,8 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 
 // settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+const unsigned int SCR_WIDTH = 1600;
+const unsigned int SCR_HEIGHT = 900;
 
 // camera
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
@@ -45,7 +47,7 @@ int main()
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Final", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -77,12 +79,20 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
+    //Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
+    Shader aniShader("shader/ani_shader.vs", "shader/ani_shader.fs");
 
     // load models
     // -----------
-    Model ourModel("resources/nanosuit/nanosuit.obj");
-
+    //Model ourModel("resources/backpack/backpack.obj");
+    
+    //animation model
+    Model aModel("resources/vampire/dancing_vampire.dae");
+    Animation danceAnimation("resources/vampire/dancing_vampire.dae", &aModel);
+    Animator animator(&danceAnimation);
+    //Model aModel("resources/joyful-jump/Joyful Jump.fbx");
+    //Animation danceAnimation("resources/joyful-jump/Joyful Jump.fbx", &aModel);
+    //Animator animator(&danceAnimation);
 
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -100,15 +110,17 @@ int main()
         // input
         // -----
         processInput(window);
-
+		  animator.UpdateAnimation(deltaTime);
+ 
         // render
         // ------
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        // don't forget to enable shader before setting uniforms
+        /*
+        //static model
         ourShader.use();
-
+        
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
@@ -121,7 +133,29 @@ int main()
         model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
         ourShader.setMat4("model", model);
         ourModel.Draw(ourShader);
+        
+        */
 
+        //animation
+        aniShader.use();
+
+        // view/projection transformations
+        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        glm::mat4 view = camera.GetViewMatrix();
+        aniShader.setMat4("projection", projection);
+        aniShader.setMat4("view", view);
+
+        auto transforms = animator.GetFinalBoneMatrices();
+        for (int i = 0; i < transforms.size(); ++i)
+            aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+
+
+        // render the loaded model
+        glm::mat4 model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, -0.4f, 0.0f)); // translate it down so it's at the center of the scene
+        model = glm::scale(model, glm::vec3(.5f, .5f, .5f));	// it's a bit too big for our scene, so scale it down
+        aniShader.setMat4("model", model);
+        aModel.Draw(aniShader);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -134,6 +168,7 @@ int main()
     glfwTerminate();
     return 0;
 }
+
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
 // ---------------------------------------------------------------------------------------------------------

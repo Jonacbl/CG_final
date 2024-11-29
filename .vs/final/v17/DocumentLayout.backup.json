@@ -5,13 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\3rd\\Computer Graphics\\lab\\CG_project-main\\code\\model.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\3rd\\Computer Graphics\\lab\\final\\include\\assimp\\material.inl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:include\\assimp\\material.inl||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,34 +24,10 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAiwKUAAABFAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAApwFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-20T16:04:27.459Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "material.inl",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\final\\include\\assimp\\material.inl",
-              "RelativeDocumentMoniker": "include\\assimp\\material.inl",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\include\\assimp\\material.inl",
-              "RelativeToolTip": "include\\assimp\\material.inl",
-              "ViewState": "AgIAAC4BAAAAAAAAAAASwDcBAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-11-27T05:33:09.121Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "model.h",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\CG_project-main\\code\\model.h",
-              "RelativeDocumentMoniker": "..\\CG_project-main\\code\\model.h",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\CG_project-main\\code\\model.h",
-              "RelativeToolTip": "..\\CG_project-main\\code\\model.h",
-              "ViewState": "AgIAAIsAAAAAAAAAAAASwLIAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-27T04:58:07.059Z"
             }
           ]
         }
