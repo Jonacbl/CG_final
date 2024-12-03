@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\",
+  "WorkspaceRootPath": "E:\\3rd\\Computer Graphics\\lab\\integration\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -14,21 +14,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp",
+              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp",
+              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAYwCcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAP8AAAAAAAAAAAAAAA0BAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-20T16:04:27.459Z",
               "EditorCaption": ""

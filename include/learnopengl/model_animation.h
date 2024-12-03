@@ -51,6 +51,28 @@ public:
 	auto& GetBoneInfoMap() { return m_BoneInfoMap; }
 	int& GetBoneCount() { return m_BoneCounter; }
 	
+	glm::vec3 CalculateCenter() const {
+		glm::vec3 center(0.0f);
+		unsigned int totalVertices = 0;
+
+		for (const Mesh& mesh : meshes) {
+			for (const Vertex& vertex : mesh.vertices) {
+				center += vertex.Position;
+				totalVertices++;
+			}
+		}
+
+		if (totalVertices > 0) {
+			center /= static_cast<float>(totalVertices);
+		}
+
+		// 输出中心坐标
+		std::cout << "Model Center: "
+			<< center.x << ", "
+			<< center.y << ", "
+			<< center.z << std::endl;
+		return center;
+	}
 
 private:
 
@@ -276,6 +298,8 @@ private:
         }
         return textures;
     }
+
+
 };
 
 
