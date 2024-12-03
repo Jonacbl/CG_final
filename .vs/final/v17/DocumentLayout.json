@@ -5,13 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\shader\\6.1.skybox.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:shader\\6.1.skybox.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\lenovo\\Downloads\\cubemaps_skybox.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,34 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "6.1.skybox.vs",
-              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\shader\\6.1.skybox.vs",
-              "RelativeDocumentMoniker": "shader\\6.1.skybox.vs",
-              "ToolTip": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\shader\\6.1.skybox.vs",
-              "RelativeToolTip": "shader\\6.1.skybox.vs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-03T13:54:03.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "cubemaps_skybox.cpp",
-              "DocumentMoniker": "C:\\Users\\lenovo\\Downloads\\cubemaps_skybox.cpp",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\Downloads\\cubemaps_skybox.cpp",
-              "ToolTip": "C:\\Users\\lenovo\\Downloads\\cubemaps_skybox.cpp",
-              "RelativeToolTip": "..\\..\\..\\..\\Downloads\\cubemaps_skybox.cpp",
-              "ViewState": "AgIAAPsAAAAAAAAAAAAAABgBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-12-03T12:42:48.063Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
@@ -61,7 +28,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAJEAAAAAAAAAAAAAAJQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAYwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-20T16:04:27.459Z",
               "EditorCaption": ""
