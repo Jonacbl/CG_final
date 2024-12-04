@@ -24,6 +24,6 @@ E:\3rd\Computer Graphics\lab\final\include\learnopengl\animation.h(98,21): warni
   (编译源文件“main.cpp”)
   
 E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(96,1): warning C4715: “Bone::GetPositionIndex”: 不是所有的控件路径都返回值
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(106,1): warning C4715: “Bone::GetRotationIndex”: 不是所有的控件路径都返回值
 E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(116,1): warning C4715: “Bone::GetScaleIndex”: 不是所有的控件路径都返回值
+E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(106,1): warning C4715: “Bone::GetRotationIndex”: 不是所有的控件路径都返回值
   final.vcxproj -> E:\3rd\Computer Graphics\lab\final\x64\Debug\final.exe
