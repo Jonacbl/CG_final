@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\3rd\\Computer Graphics\\lab\\integration\\",
+  "WorkspaceRootPath": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -14,19 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\integration\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAABEBAAAAAAAAAAAAAN8AAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\lenovo\\Desktop\\files\\CG\\CGAssignmentFinal\\main.cpp*",
+              "RelativeToolTip": "main.cpp*",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAAAJgAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-20T16:04:27.459Z",
+              "WhenOpened": "2024-12-04T07:36:19.209Z",
               "EditorCaption": ""
             }
           ]
