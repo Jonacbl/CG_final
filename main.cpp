@@ -179,8 +179,8 @@ int main()
     Animator animator(&danceAnimation);
     aModel.CalculateCenter();
 
-    Model beeModel("resources/bee/source/bee.fbx");
-    Animation beeFlyAnimation("resources/bee/source/bee.fbx", &beeModel);
+    Model beeModel("resources/fox/source/fox.fbx");
+    Animation beeFlyAnimation("resources/fox/source/fox.fbx", &beeModel);
     Animator beeAnimator(&beeFlyAnimation);
     beeModel.CalculateCenter();
 
@@ -209,26 +209,26 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //static model of House
-        {
-            ourShader.use();
+        //{
+        //    ourShader.use();
 
-            // view/projection transformations
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.GetViewMatrix();
-            ourShader.setMat4("projection", projection);
-            ourShader.setMat4("view", view);
+        //    // view/projection transformations
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = camera.GetViewMatrix();
+        //    ourShader.setMat4("projection", projection);
+        //    ourShader.setMat4("view", view);
 
-            // render the loaded model
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(0.0f, 0.0f, -25.0f)); // far away from camera
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(.75f, .75f, .75f));	// it's a bit too big for our scene, so scale it down
+        //    // render the loaded model
+        //    glm::mat4 model = glm::mat4(1.0f);
+        //    model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
+        //    model = glm::translate(model, glm::vec3(0.0f, 0.0f, -25.0f)); // far away from camera
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+        //    model = glm::scale(model, glm::vec3(.75f, .75f, .75f));	// it's a bit too big for our scene, so scale it down
 
-            ourShader.setMat4("model", model);
-            ourModel.Draw(ourShader);
+        //    ourShader.setMat4("model", model);
+        //    ourModel.Draw(ourShader);
 
-        }
+        //}
 
         //vampire_animation
         //{   
@@ -252,73 +252,73 @@ int main()
         //}
 
         //chicken_animation
-        {
-            aniShader.use();
-
-            // view/projection transformations
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.GetViewMatrix();
-            aniShader.setMat4("projection", projection);
-            aniShader.setMat4("view", view);
-
-            auto transforms = animator.GetFinalBoneMatrices();
-            for (int i = 0; i < transforms.size(); ++i)
-                aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-            // render the loaded model
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-            model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-            model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-            model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
-            aniShader.setMat4("model", model);
-            aModel.Draw(aniShader);
-        }
-
-        
-        //bee_animation now not available
         //{
-        //    beeShader.use();
+        //    aniShader.use();
 
         //    // view/projection transformations
         //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         //    glm::mat4 view = camera.GetViewMatrix();
-        //    beeShader.setMat4("projection", projection);
-        //    beeShader.setMat4("view", view);
+        //    aniShader.setMat4("projection", projection);
+        //    aniShader.setMat4("view", view);
 
-        //    auto transforms = beeAnimator.GetFinalBoneMatrices();
+        //    auto transforms = animator.GetFinalBoneMatrices();
         //    for (int i = 0; i < transforms.size(); ++i)
-        //        beeShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
 
         //    // render the loaded model
         //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(-0.508445f, -1.34607f, -0.00241307f)); // translate it to the center of the scene
-        //    //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); // scale it down
-        //    beeShader.setMat4("model", model);
-        //    beeModel.Draw(beeShader);
+        //    model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
+        //    model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
+        //    model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
+        //    model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
+        //    aniShader.setMat4("model", model);
+        //    aModel.Draw(aniShader);
         //}
 
-        // draw skybox as last
+        
+        //bee_animation now not available
         {
-            glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
-            skyboxShader.use();
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
-            skyboxShader.setMat4("view", view);
-            skyboxShader.setMat4("projection", projection);
-            // skybox cube
-            glBindVertexArray(skyboxVAO);
-            glActiveTexture(GL_TEXTURE0);
-            glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-            glBindVertexArray(0);
-            glDepthFunc(GL_LESS); // set depth function back to default
+            beeShader.use();
 
+            // view/projection transformations
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            beeShader.setMat4("projection", projection);
+            beeShader.setMat4("view", view);
+
+            auto transforms = beeAnimator.GetFinalBoneMatrices();
+            for (int i = 0; i < transforms.size(); ++i)
+                beeShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+
+            // render the loaded model
+            glm::mat4 model = glm::mat4(1.0f);
+            //model = glm::translate(model, glm::vec3(-3.75174f, -3.09131f, 9.10885f)); // translate it to the center of the scene
+            //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
+            //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+            //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
+            model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); // scale it down
+            beeShader.setMat4("model", model);
+            beeModel.Draw(beeShader);
         }
+
+        // draw skybox as last
+        //{
+        //    glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
+        //    skyboxShader.use();
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = glm::mat4(glm::mat3(camera.GetViewMatrix())); // remove translation from the view matrix
+        //    skyboxShader.setMat4("view", view);
+        //    skyboxShader.setMat4("projection", projection);
+        //    // skybox cube
+        //    glBindVertexArray(skyboxVAO);
+        //    glActiveTexture(GL_TEXTURE0);
+        //    glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+        //    glDrawArrays(GL_TRIANGLES, 0, 36);
+        //    glBindVertexArray(0);
+        //    glDepthFunc(GL_LESS); // set depth function back to default
+
+        //}
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
