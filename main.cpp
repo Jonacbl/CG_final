@@ -85,7 +85,7 @@ int main()
     // -------------------------
     Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
     Shader aniShader("shader/ani_shader.vs", "shader/ani_shader.fs");
-    Shader shader("shader/cubemaps.vs", "shader/cubemaps.fs");
+    Shader beeShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -151,8 +151,8 @@ int main()
     {
         "resources/textures/skybox/right.jpg",
         "resources/textures/skybox/left.jpg",
-        "resources/textures/skybox/bottom.jpg",
-        "resources/textures/skybox/top.jpg",
+        "resources/textures/skybox/bottom.jpg", // SOS
+        "resources/textures/skybox/top.jpg", // SOS
         "resources/textures/skybox/front.jpg",
         "resources/textures/skybox/back.jpg"
     };
@@ -160,8 +160,6 @@ int main()
 
     // shader configuration
     // --------------------
-    shader.use();
-    shader.setInt("texture1", 0);
 
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
@@ -175,10 +173,16 @@ int main()
     //Model aModel("resources/vampire/dancing_vampire.dae");
     //Animation danceAnimation("resources/vampire/dancing_vampire.dae", &aModel);
     //Animator animator(&danceAnimation);
+
     Model aModel("resources/chicken-rig/source/Chicken.FBX");
     Animation danceAnimation("resources/chicken-rig/source/Chicken.FBX", &aModel);
     Animator animator(&danceAnimation);
     aModel.CalculateCenter();
+
+    Model beeModel("resources/bee/source/bee.fbx");
+    Animation beeFlyAnimation("resources/bee/source/bee.fbx", &beeModel);
+    Animator beeAnimator(&beeFlyAnimation);
+    beeModel.CalculateCenter();
 
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -197,6 +201,7 @@ int main()
         // -----
         processInput(window);
 		  animator.UpdateAnimation(deltaTime/1.5f);
+          beeAnimator.UpdateAnimation(deltaTime);
  
         // render
         // ------
@@ -224,7 +229,6 @@ int main()
             ourModel.Draw(ourShader);
 
         }
-
 
         //vampire_animation
         //{   
@@ -265,13 +269,39 @@ int main()
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
             model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-            model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //
+            model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
             model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
             model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
             aniShader.setMat4("model", model);
             aModel.Draw(aniShader);
         }
-      
+
+        
+        //bee_animation now not available
+        //{
+        //    beeShader.use();
+
+        //    // view/projection transformations
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = camera.GetViewMatrix();
+        //    beeShader.setMat4("projection", projection);
+        //    beeShader.setMat4("view", view);
+
+        //    auto transforms = beeAnimator.GetFinalBoneMatrices();
+        //    for (int i = 0; i < transforms.size(); ++i)
+        //        beeShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+
+        //    // render the loaded model
+        //    glm::mat4 model = glm::mat4(1.0f);
+        //    model = glm::translate(model, glm::vec3(-0.508445f, -1.34607f, -0.00241307f)); // translate it to the center of the scene
+        //    //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
+        //    //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
+        //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); // scale it down
+        //    beeShader.setMat4("model", model);
+        //    beeModel.Draw(beeShader);
+        //}
+
         // draw skybox as last
         {
             glDepthFunc(GL_LEQUAL);  // change depth function so depth test passes when values are equal to depth buffer's content
@@ -289,7 +319,6 @@ int main()
             glDepthFunc(GL_LESS); // set depth function back to default
 
         }
-
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------

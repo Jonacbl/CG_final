@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\3rd\\Computer Graphics\\lab\\final\\",
+  "WorkspaceRootPath": "E:\\3rd\\Computer Graphics\\lab\\test\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\test\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp",
+              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\test\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp",
+              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\test\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAP8AAAAAAAAAAAAAAA0BAABRAAAAAAAAAA==",
+              "ViewState": "AgIAAMsAAAAAAAAAAAAAANMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-20T16:04:27.459Z",
               "EditorCaption": ""

@@ -1,32 +1,29 @@
-﻿  glad.c
-  main.cpp
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\model_animation.h(196,37): warning C4018: “<”: 有符号/无符号不匹配
+﻿  main.cpp
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\model_animation.h(196,37): warning C4018: “<”: 有符号/无符号不匹配
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(45,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(45,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(56,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(56,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(67,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(67,20): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\animation.h(31,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\animation.h(31,25): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\animation.h(32,31): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\animation.h(32,31): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\animation.h(56,44): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\animation.h(56,44): warning C4244: “return”: 从“int”转换到“float”，可能丢失数据
   (编译源文件“main.cpp”)
   
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\animation.h(98,21): warning C4018: “<”: 有符号/无符号不匹配
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\animation.h(98,21): warning C4018: “<”: 有符号/无符号不匹配
   (编译源文件“main.cpp”)
   
-  stb_image.cpp
-  正在生成代码...
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(96,1): warning C4715: “Bone::GetPositionIndex”: 不是所有的控件路径都返回值
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(116,1): warning C4715: “Bone::GetScaleIndex”: 不是所有的控件路径都返回值
-E:\3rd\Computer Graphics\lab\final\include\learnopengl\bone.h(106,1): warning C4715: “Bone::GetRotationIndex”: 不是所有的控件路径都返回值
-  final.vcxproj -> E:\3rd\Computer Graphics\lab\final\x64\Debug\final.exe
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(96,1): warning C4715: “Bone::GetPositionIndex”: 不是所有的控件路径都返回值
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(106,1): warning C4715: “Bone::GetRotationIndex”: 不是所有的控件路径都返回值
+E:\3rd\Computer Graphics\lab\test\include\learnopengl\bone.h(116,1): warning C4715: “Bone::GetScaleIndex”: 不是所有的控件路径都返回值
+  final.vcxproj -> E:\3rd\Computer Graphics\lab\test\x64\Debug\final.exe
