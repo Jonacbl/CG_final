@@ -4,7 +4,7 @@
 
 - [Jonacbl](https://github.com/Jonacbl)
 - [lagrange](https://github.com/lxl1437)
-- [BaiHYF]()(https://github.com/BaiHYF)
+- [BaiHYF](https://github.com/BaiHYF)
 - [Charles4731](https://github.com/Charles4731)
 
 
