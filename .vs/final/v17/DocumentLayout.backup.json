@@ -5,14 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\final\\shader\\vertex.vs||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:shader\\vertex.vs||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|E:\\3rd\\Computer Graphics\\lab\\final\\shader\\blinn-phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{8462E6D3-E4D8-4C89-95C8-E3244C553302}|final.vcxproj|solutionrelative:shader\\blinn-phong.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,32 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 320,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "blinn-phong.fs",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\final\\shader\\blinn-phong.fs",
-              "RelativeDocumentMoniker": "shader\\blinn-phong.fs",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\shader\\blinn-phong.fs",
-              "RelativeToolTip": "shader\\blinn-phong.fs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-06T02:37:37.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "vertex.vs",
-              "DocumentMoniker": "E:\\3rd\\Computer Graphics\\lab\\final\\shader\\vertex.vs",
-              "RelativeDocumentMoniker": "shader\\vertex.vs",
-              "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\shader\\vertex.vs",
-              "RelativeToolTip": "shader\\vertex.vs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-06T02:18:42.454Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -56,7 +24,7 @@
               "RelativeDocumentMoniker": "main.cpp",
               "ToolTip": "E:\\3rd\\Computer Graphics\\lab\\final\\main.cpp",
               "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAiwF0BAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAMwAAAAAAAAAAAAiwF0BAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-20T16:04:27.459Z",
               "EditorCaption": ""
