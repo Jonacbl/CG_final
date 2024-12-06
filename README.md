@@ -14,6 +14,8 @@
 - assimp加载静态模型
 - assimp加载动态模型
 - skybox加载天空盒
+- blinn-phong光照
+- 交互摄像机
 
 
 
