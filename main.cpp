@@ -19,7 +19,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
-unsigned int loadTexture(const char* path);
 unsigned int loadCubemap(vector<std::string> faces);
 
 // settings
@@ -83,7 +82,8 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
+    //Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
+    Shader ourShader("shader/blinn-phong.vs", "shader/blinn-phong.fs");
     Shader aniShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader beeShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
@@ -164,6 +164,9 @@ int main()
     skyboxShader.use();
     skyboxShader.setInt("skybox", 0);
 
+    //parallel light
+    glm::vec3 lightDir(0.0f, -1.0f, -1.0f);
+
     // load models
     // -----------
     Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
@@ -217,13 +220,15 @@ int main()
             glm::mat4 view = camera.GetViewMatrix();
             ourShader.setMat4("projection", projection);
             ourShader.setMat4("view", view);
+            ourShader.setVec3("viewPos", camera.Position);
+            ourShader.setVec3("lightDirection", lightDir);
 
             // render the loaded model
             glm::mat4 model = glm::mat4(1.0f);
             model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(0.0f, 0.0f, -25.0f)); // far away from camera
+            model = glm::translate(model, glm::vec3(0.0f, -10.0f, -50.0f)); // far away from camera
             model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(.75f, .75f, .75f));	// it's a bit too big for our scene, so scale it down
+            model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
 
             ourShader.setMat4("model", model);
             ourModel.Draw(ourShader);
@@ -252,29 +257,29 @@ int main()
         //}
 
         //chicken_animation
-        {
-            aniShader.use();
+        //{
+        //    aniShader.use();
 
-            // view/projection transformations
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.GetViewMatrix();
-            aniShader.setMat4("projection", projection);
-            aniShader.setMat4("view", view);
+        //    // view/projection transformations
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = camera.GetViewMatrix();
+        //    aniShader.setMat4("projection", projection);
+        //    aniShader.setMat4("view", view);
 
-            auto transforms = animator.GetFinalBoneMatrices();
-            for (int i = 0; i < transforms.size(); ++i)
-                aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+        //    auto transforms = animator.GetFinalBoneMatrices();
+        //    for (int i = 0; i < transforms.size(); ++i)
+        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
 
-            // render the loaded model
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-            model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-            model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-            model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
-            aniShader.setMat4("model", model);
-            aModel.Draw(aniShader);
-        }
+        //    // render the loaded model
+        //    glm::mat4 model = glm::mat4(1.0f);
+        //    model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
+        //    model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
+        //    model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
+        //    model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
+        //    aniShader.setMat4("model", model);
+        //    aModel.Draw(aniShader);
+        //}
 
         
         //bee_animation now not available

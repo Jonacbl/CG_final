@@ -35,5 +35,43 @@
     <ClInclude Include="include\animodel.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="include\learnopengl\shader_m.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="include\learnopengl\model_animation.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\ani_shader.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\ani_shader.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\cubemaps.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\cubemaps.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\fragment.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\skybox.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\skybox.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\vertex.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\blinn-phong.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\blinn-phong.vs">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
 </Project>

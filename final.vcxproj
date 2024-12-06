@@ -140,6 +140,20 @@
     <ClInclude Include="include\animodel.h" />
     <ClInclude Include="include\learnopengl\mesh.h" />
     <ClInclude Include="include\learnopengl\model.h" />
+    <ClInclude Include="include\learnopengl\model_animation.h" />
+    <ClInclude Include="include\learnopengl\shader_m.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\ani_shader.fs" />
+    <None Include="shader\ani_shader.vs" />
+    <None Include="shader\blinn-phong.fs" />
+    <None Include="shader\blinn-phong.vs" />
+    <None Include="shader\cubemaps.fs" />
+    <None Include="shader\cubemaps.vs" />
+    <None Include="shader\fragment.fs" />
+    <None Include="shader\skybox.fs" />
+    <None Include="shader\skybox.vs" />
+    <None Include="shader\vertex.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
