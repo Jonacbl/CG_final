@@ -4,7 +4,7 @@
 
 - [Jonacbl](https://github.com/Jonacbl)
 - [lagrange](https://github.com/lxl1437)
-- [BaiHYF]()(https://github.com/BaiHYF)
+- [BaiHYF](https://github.com/BaiHYF)
 - [Charles4731](https://github.com/Charles4731)
 
 
@@ -24,8 +24,6 @@
 ./lib
 ```
 
-
-
 ![](./README/include.png)
 
 链接器-输入中添加：
@@ -37,6 +35,4 @@ assimp-vc143-mtd.lib
 
 ![](./README/linker.png)
 
-即可在`.sln`运行中运行，目前只实现了静态加载`assimp`和动画assimp。
-
-有人来了test
+即可在`.sln`运行中运行。
