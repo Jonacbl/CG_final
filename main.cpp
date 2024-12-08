@@ -182,10 +182,10 @@ int main()
     Animator animator(&danceAnimation);
     aModel.CalculateCenter();
 
-    Model beeModel("resources/fox/source/fox.fbx");
-    Animation beeFlyAnimation("resources/fox/source/fox.fbx", &beeModel);
-    Animator beeAnimator(&beeFlyAnimation);
-    beeModel.CalculateCenter();
+    //Model beeModel("resources/insect/source/AriadosSF.fbx");
+    //Animation beeFlyAnimation("resources/insect/source/AriadosSF.fbx", &beeModel);
+    //Animator beeAnimator(&beeFlyAnimation);
+    //beeModel.CalculateCenter();
 
     // draw in wireframe
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -203,8 +203,8 @@ int main()
         // input
         // -----
         processInput(window);
-		  animator.UpdateAnimation(deltaTime/1.5f);
-          beeAnimator.UpdateAnimation(deltaTime);
+		  animator.UpdateAnimation(deltaTime);
+          //beeAnimator.UpdateAnimation(deltaTime);
  
         // render
         // ------
@@ -257,29 +257,29 @@ int main()
         //}
 
         //chicken_animation
-        //{
-        //    aniShader.use();
+        {
+            aniShader.use();
 
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    aniShader.setMat4("projection", projection);
-        //    aniShader.setMat4("view", view);
+            // view/projection transformations
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            aniShader.setMat4("projection", projection);
+            aniShader.setMat4("view", view);
 
-        //    auto transforms = animator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
+            auto transforms = animator.GetFinalBoneMatrices();
+            for (int i = 0; i < transforms.size(); ++i)
+                aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
 
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-        //    model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
-        //    aniShader.setMat4("model", model);
-        //    aModel.Draw(aniShader);
-        //}
+            // render the loaded model
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
+            model = glm::translate(model, glm::vec3(-15.0f, -15.5f, -8.0f));
+            model = glm::rotate(model, glm::radians(-135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
+            model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
+            aniShader.setMat4("model", model);
+            aModel.Draw(aniShader);
+        }
 
         
         //bee_animation now not available
@@ -298,7 +298,7 @@ int main()
 
         //    // render the loaded model
         //    glm::mat4 model = glm::mat4(1.0f);
-        //    //model = glm::translate(model, glm::vec3(-3.75174f, -3.09131f, 9.10885f)); // translate it to the center of the scene
+        //    model = glm::translate(model, glm::vec3(-0.163921f, -2.40573f, -10.0f)); // translate it to the center of the scene
         //    //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
         //    //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
         //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
@@ -346,13 +346,13 @@ void processInput(GLFWwindow* window)
         glfwSetWindowShouldClose(window, true);
 
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        camera.ProcessKeyboard(FORWARD, deltaTime);
+        camera.ProcessKeyboard(FORWARD, deltaTime * 5.0f);
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        camera.ProcessKeyboard(BACKWARD, deltaTime);
+        camera.ProcessKeyboard(BACKWARD, deltaTime * 5.0f);
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        camera.ProcessKeyboard(LEFT, deltaTime);
+        camera.ProcessKeyboard(LEFT, deltaTime * 5.0f);
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        camera.ProcessKeyboard(RIGHT, deltaTime);
+        camera.ProcessKeyboard(RIGHT, deltaTime * 5.0f);
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
