@@ -87,6 +87,8 @@ int main()
     Shader aniShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader beeShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
+    
+
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
