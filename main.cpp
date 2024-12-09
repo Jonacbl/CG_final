@@ -14,7 +14,6 @@
 #include <learnopengl/animator.h>
 
 #include <iostream>
-// #include "cube_utils.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -38,6 +37,13 @@ const glm::vec3 cameraPos = glm::vec3(0.0f, 1.0f, -10.0f);
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+/// @brief Draw a cube, at the given position, read README for more details
+/// @param ourShader shader
+/// @param camera    camera
+/// @param lightDir  light direction
+/// @param worldPos  world position of to draw the model
+/// @param cube      cube model
+/// @param ro        a control flag, by default false
 void draw_cube(Shader &ourShader, Camera &camera, glm::vec3 lightDir, glm::vec3 worldPos, Model cube, bool ro=false) {
     ourShader.use();
 
@@ -195,7 +201,6 @@ int main()
     Model grass_cube("resources/grass_cube/scene.gltf");
     Model stone_cube("resources/stone_cube/scene.gltf");
     Model wood_cube("resources/wood_cube/scene.gltf");
-    // Model leave_cube("resources/leave_cube/scene.gltf");
     Model brick_cube("resources/brick_cube/scene.gltf");
     Model stone_brick_cube("resources/stone_brick_cube/scene.gltf");
     Model sand_cube("resources/sand_cube/scene.gltf");
@@ -219,13 +224,15 @@ int main()
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
 
+        {
+            draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
+            draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
+            draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
+            draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
+            draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
+            draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
+        }
 
         // draw skybox as last
         {
