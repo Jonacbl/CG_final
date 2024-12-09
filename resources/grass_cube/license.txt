@@ -1,0 +1,8 @@
+Model Information:
+* title:	Minecraft Cube
+* source:	https://sketchfab.com/3d-models/minecraft-cube-690644b638ce46b2b713ed2236e0a9e1
+* author:	miguel.acf204 (https://sketchfab.com/miguel.acf204)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

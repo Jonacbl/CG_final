@@ -14,6 +14,7 @@
 #include <learnopengl/animator.h>
 
 #include <iostream>
+// #include "cube_utils.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -31,9 +32,35 @@ float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
+const glm::vec3 cameraPos = glm::vec3(0.0f, 1.0f, -10.0f);
+
 // timing
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
+
+void draw_cube(Shader &ourShader, Camera &camera, glm::vec3 lightDir, glm::vec3 worldPos, Model cube, bool ro=false) {
+    ourShader.use();
+
+    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+    glm::mat4 view = camera.GetViewMatrix();
+    ourShader.setMat4("projection", projection);
+    ourShader.setMat4("view", view);
+    ourShader.setVec3("viewPos", camera.Position);
+    ourShader.setVec3("lightDirection", lightDir);
+
+    glm::mat4 modelMatrix = glm::mat4(1.0f);
+
+    modelMatrix = glm::translate(modelMatrix, worldPos);
+    modelMatrix = glm::translate(modelMatrix, cameraPos);
+    if (ro) {
+        modelMatrix = glm::rotate(modelMatrix, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+    }
+    modelMatrix = glm::scale(modelMatrix, glm::vec3(0.5f, 0.5f, 0.5f));
+    ourShader.setMat4("model", modelMatrix);
+
+    cube.Draw(ourShader);
+}
+
 
 int main()
 {
@@ -82,21 +109,18 @@ int main()
 
     // build and compile shaders
     // -------------------------
-    //Shader ourShader("shader/vertex.vs", "shader/fragment.fs");
     Shader ourShader("shader/blinn-phong.vs", "shader/blinn-phong.fs");
-    Shader aniShader("shader/ani_shader.vs", "shader/ani_shader.fs");
-    Shader beeShader("shader/ani_shader.vs", "shader/ani_shader.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
     float skyboxVertices[] = {
-        // positions          
+        // positions
         -1.0f,  1.0f, -1.0f,
         -1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f,  1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f,  1.0f, -1.0f,
         -1.0f,  1.0f, -1.0f,
 
         -1.0f, -1.0f,  1.0f,
@@ -106,33 +130,33 @@ int main()
         -1.0f,  1.0f,  1.0f,
         -1.0f, -1.0f,  1.0f,
 
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
 
         -1.0f, -1.0f,  1.0f,
         -1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f, -1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f, -1.0f,  1.0f,
         -1.0f, -1.0f,  1.0f,
 
         -1.0f,  1.0f, -1.0f,
-         1.0f,  1.0f, -1.0f,
-         1.0f,  1.0f,  1.0f,
-         1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f, -1.0f,
+        1.0f,  1.0f,  1.0f,
+        1.0f,  1.0f,  1.0f,
         -1.0f,  1.0f,  1.0f,
         -1.0f,  1.0f, -1.0f,
 
         -1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f,  1.0f,
-         1.0f, -1.0f, -1.0f,
-         1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
+        1.0f, -1.0f, -1.0f,
         -1.0f, -1.0f,  1.0f,
-         1.0f, -1.0f,  1.0f
+        1.0f, -1.0f,  1.0f
     };
 
     // skybox VAO
@@ -168,27 +192,13 @@ int main()
     glm::vec3 lightDir(0.0f, -1.0f, -1.0f);
 
     // load models
-    // -----------
-    Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
-    ourModel.CalculateCenter();
-    
-    //animation model
-    //Model aModel("resources/vampire/dancing_vampire.dae");
-    //Animation danceAnimation("resources/vampire/dancing_vampire.dae", &aModel);
-    //Animator animator(&danceAnimation);
-
-    Model aModel("resources/chicken-rig/source/Chicken.FBX");
-    Animation danceAnimation("resources/chicken-rig/source/Chicken.FBX", &aModel);
-    Animator animator(&danceAnimation);
-    aModel.CalculateCenter();
-
-    Model beeModel("resources/fox/source/fox.fbx");
-    Animation beeFlyAnimation("resources/fox/source/fox.fbx", &beeModel);
-    Animator beeAnimator(&beeFlyAnimation);
-    beeModel.CalculateCenter();
-
-    // draw in wireframe
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    Model grass_cube("resources/grass_cube/scene.gltf");
+    Model stone_cube("resources/stone_cube/scene.gltf");
+    Model wood_cube("resources/wood_cube/scene.gltf");
+    // Model leave_cube("resources/leave_cube/scene.gltf");
+    Model brick_cube("resources/brick_cube/scene.gltf");
+    Model stone_brick_cube("resources/stone_brick_cube/scene.gltf");
+    Model sand_cube("resources/sand_cube/scene.gltf");
 
     // render loop
     // -----------
@@ -203,109 +213,19 @@ int main()
         // input
         // -----
         processInput(window);
-		  animator.UpdateAnimation(deltaTime/1.5f);
-          beeAnimator.UpdateAnimation(deltaTime);
- 
+
         // render
         // ------
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        //static model of House
-        {
-            ourShader.use();
+        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
+        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
+        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
+        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
+        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
+        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
 
-            // view/projection transformations
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.GetViewMatrix();
-            ourShader.setMat4("projection", projection);
-            ourShader.setMat4("view", view);
-            ourShader.setVec3("viewPos", camera.Position);
-            ourShader.setVec3("lightDirection", lightDir);
-
-            // render the loaded model
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(0.0f, -10.0f, -50.0f)); // far away from camera
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
-
-            ourShader.setMat4("model", model);
-            ourModel.Draw(ourShader);
-
-        }
-
-        //vampire_animation
-        //{   
-        //    aniShader.use();
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    aniShader.setMat4("projection", projection);
-        //    aniShader.setMat4("view", view);
-
-        //    auto transforms = animator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(0.0f, -0.4f, 0.0f)); // translate it down so it's at the center of the scene
-        //    model = glm::scale(model, glm::vec3(.5f, .5f, .5f));	// it's a bit too big for our scene, so scale it down
-        //    aniShader.setMat4("model", model);
-        //    aModel.Draw(aniShader);
-        //}
-
-        //chicken_animation
-        //{
-        //    aniShader.use();
-
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    aniShader.setMat4("projection", projection);
-        //    aniShader.setMat4("view", view);
-
-        //    auto transforms = animator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-        //    model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
-        //    aniShader.setMat4("model", model);
-        //    aModel.Draw(aniShader);
-        //}
-
-        
-        //bee_animation now not available
-        //{
-        //    beeShader.use();
-
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    beeShader.setMat4("projection", projection);
-        //    beeShader.setMat4("view", view);
-
-        //    auto transforms = beeAnimator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        beeShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    //model = glm::translate(model, glm::vec3(-3.75174f, -3.09131f, 9.10885f)); // translate it to the center of the scene
-        //    //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); // scale it down
-        //    beeShader.setMat4("model", model);
-        //    beeModel.Draw(beeShader);
-        //}
 
         // draw skybox as last
         {
@@ -359,7 +279,7 @@ void processInput(GLFWwindow* window)
 // ---------------------------------------------------------------------------------------------
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
-    // make sure the viewport matches the new window dimensions; note that width and 
+    // make sure the viewport matches the new window dimensions; note that width and
     // height will be significantly larger than specified on retina displays.
     glViewport(0, 0, width, height);
 }
@@ -400,7 +320,7 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 // -X (left)
 // +Y (top)
 // -Y (bottom)
-// +Z (front) 
+// +Z (front)
 // -Z (back)
 // -------------------------------------------------------
 unsigned int loadCubemap(vector<std::string> faces)

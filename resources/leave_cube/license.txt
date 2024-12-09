@@ -1,0 +1,11 @@
+Model Information:
+* title:	Minecraft Leaves
+* source:	https://sketchfab.com/3d-models/minecraft-leaves-df263bd5c7794d47abdf885e40e5b520
+* author:	timmyyom36 (https://sketchfab.com/timmyyom36)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Minecraft Leaves" (https://sketchfab.com/3d-models/minecraft-leaves-df263bd5c7794d47abdf885e40e5b520) by timmyyom36 (https://sketchfab.com/timmyyom36) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
