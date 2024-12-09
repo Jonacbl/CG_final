@@ -117,7 +117,6 @@ int main()
     // -------------------------
     Shader ourShader("shader/blinn-phong.vs", "shader/blinn-phong.fs");
     Shader skyboxShader("shader/skybox.vs", "shader/skybox.fs");
-    Shader groundShader("shader/ground.vs", "shader/ground.fs");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -202,7 +201,7 @@ int main()
     // -----------
     Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
     ourModel.CalculateCenter();
-
+    
     //animation model
     //Model aModel("resources/vampire/dancing_vampire.dae");
     //Animation danceAnimation("resources/vampire/dancing_vampire.dae", &aModel);
@@ -231,7 +230,7 @@ int main()
         // Calculate world position of the cube according to i
         int row = i / size;
         int col = i % size;
-        model = glm::translate(model, glm::vec3(static_cast<float>(col) - 50.0f, -2.0f, static_cast<float>(row) - 50.0f));
+        model = glm::translate(model, glm::vec3(static_cast<float>(col) - 50.0f, -2.0f, static_cast<float>(row) - 50.0f)); 
         model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 
         groundModelMatrices[i] = model;
@@ -286,26 +285,22 @@ int main()
         // input
         // -----
         processInput(window);
-        //animator.UpdateAnimation(deltaTime/1.5f);
-        //beeAnimator.UpdateAnimation(deltaTime);
-
+		  //animator.UpdateAnimation(deltaTime/1.5f);
+          //beeAnimator.UpdateAnimation(deltaTime);
+ 
         // render
         // ------
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        groundShader.use();
+        ourShader.use();
 
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
-        groundShader.setMat4("projection", projection);
-        groundShader.setMat4("view", view);
-        groundShader.setVec3("viewPos", camera.Position);
-        groundShader.setVec3("lightDirection", lightDir);
-        groundShader.setInt("texture_diffuse1", 0);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, grass_cube.textures_loaded[0].id); 
-        // note: we also made the textures_loaded vector public (instead of private) from the model class.
+        ourShader.setMat4("projection", projection);
+        ourShader.setMat4("view", view);
+        ourShader.setVec3("viewPos", camera.Position);
+        ourShader.setVec3("lightDirection", lightDir);
         for (unsigned int i = 0; i < grass_cube.meshes.size(); i++)
         {
             glBindVertexArray(grass_cube.meshes[i].VAO);
@@ -346,7 +341,7 @@ int main()
         //}
 
         //vampire_animation
-        //{
+        //{   
         //    aniShader.use();
         //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         //    glm::mat4 view = camera.GetViewMatrix();
@@ -391,7 +386,7 @@ int main()
         //    aModel.Draw(aniShader);
         //}
 
-
+        
         //bee_animation now not available
         //{
         //    beeShader.use();
