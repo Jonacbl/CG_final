@@ -212,10 +212,6 @@ int main()
     Animator animator(&danceAnimation);
     aModel.CalculateCenter();
 
-    Model beeModel("resources/fox/source/fox.fbx");
-    Animation beeFlyAnimation("resources/fox/source/fox.fbx", &beeModel);
-    Animator beeAnimator(&beeFlyAnimation);
-    beeModel.CalculateCenter();
 
     //minecraft_cube
     Model grass_cube("resources/grass_cube/scene.gltf");
@@ -249,37 +245,37 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //static model of House
-        //{
-        //    ourShader.use();
-
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    ourShader.setMat4("projection", projection);
-        //    ourShader.setMat4("view", view);
-        //    ourShader.setVec3("viewPos", camera.Position);
-        //    ourShader.setVec3("lightDirection", lightDir);
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-        //    model = glm::translate(model, glm::vec3(0.0f, -10.0f, -50.0f)); // far away from camera
-        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-        //    model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
-
-        //    ourShader.setMat4("model", model);
-        //    ourModel.Draw(ourShader);
-
-        //}
-
         {
-            draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
-            draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
-            draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
-            draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
-            draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
-            draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
+            ourShader.use();
+
+            // view/projection transformations
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            ourShader.setMat4("projection", projection);
+            ourShader.setMat4("view", view);
+            ourShader.setVec3("viewPos", camera.Position);
+            ourShader.setVec3("lightDirection", lightDir);
+
+            // render the loaded model
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
+            model = glm::translate(model, glm::vec3(0.0f, -10.0f, -50.0f)); // far away from camera
+            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+            model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
+
+            ourShader.setMat4("model", model);
+            ourModel.Draw(ourShader);
+
         }
+
+        //{
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
+        //    draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
+        //}
 
         //vampire_animation
         //{   
