@@ -236,17 +236,12 @@ int main()
 
         groundModelMatrices[i] = model;
     }
-    // configure instanced array
+    // configure instanced array of ground
     // -------------------------
     unsigned int buffer;
     glGenBuffers(1, &buffer);
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
     glBufferData(GL_ARRAY_BUFFER, size * size * sizeof(glm::mat4), &groundModelMatrices[0], GL_STATIC_DRAW);
-
-    // set transformation matrices as an instance vertex attribute (with divisor 1)
-    // note: we're cheating a little by taking the, now publicly declared, VAO of the model's mesh(es) and adding new vertexAttribPointers
-    // normally you'd want to do this in a more organized fashion, but for learning purposes this will do.
-    // -----------------------------------------------------------------------------------------------------------------------------------
     for (unsigned int i = 0; i < grass_cube.meshes.size(); i++)
     {
         unsigned int VAO = grass_cube.meshes[i].VAO;
@@ -265,7 +260,6 @@ int main()
         glVertexAttribDivisor(4, 1);
         glVertexAttribDivisor(5, 1);
         glVertexAttribDivisor(6, 1);
-
         glBindVertexArray(0);
     }
 
@@ -294,128 +288,25 @@ int main()
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        groundShader.use();
-
-        glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        glm::mat4 view = camera.GetViewMatrix();
-        groundShader.setMat4("projection", projection);
-        groundShader.setMat4("view", view);
-        groundShader.setVec3("viewPos", camera.Position);
-        groundShader.setVec3("lightDirection", lightDir);
-        groundShader.setInt("texture_diffuse1", 0);
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, grass_cube.textures_loaded[0].id); 
-        // note: we also made the textures_loaded vector public (instead of private) from the model class.
-        for (unsigned int i = 0; i < grass_cube.meshes.size(); i++)
+        // render a 100x100 ground with `grass cube`
         {
-            glBindVertexArray(grass_cube.meshes[i].VAO);
-            glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(grass_cube.meshes[i].indices.size()), GL_UNSIGNED_INT, 0, size * size);
-            glBindVertexArray(0);
+            groundShader.use();
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            groundShader.setMat4("projection", projection);
+            groundShader.setMat4("view", view);
+            groundShader.setVec3("viewPos", camera.Position);
+            groundShader.setVec3("lightDirection", lightDir);
+            groundShader.setInt("texture_diffuse1", 0);
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, grass_cube.textures_loaded[0].id);
+            for (unsigned int i = 0; i < grass_cube.meshes.size(); i++)
+            {
+                glBindVertexArray(grass_cube.meshes[i].VAO);
+                glDrawElementsInstanced(GL_TRIANGLES, static_cast<unsigned int>(grass_cube.meshes[i].indices.size()), GL_UNSIGNED_INT, 0, size * size);
+                glBindVertexArray(0);
+            }
         }
-        //static model of House
-        // {
-        //     ourShader.use();
-
-        //     // view/projection transformations
-        //     glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //     glm::mat4 view = camera.GetViewMatrix();
-        //     ourShader.setMat4("projection", projection);
-        //     ourShader.setMat4("view", view);
-        //     ourShader.setVec3("viewPos", camera.Position);
-        //     ourShader.setVec3("lightDirection", lightDir);
-
-        //     // render the loaded model
-        //     glm::mat4 model = glm::mat4(1.0f);
-        //     model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-        //     model = glm::translate(model, glm::vec3(0.0f, -10.0f, -50.0f)); // far away from camera
-        //     model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-        //     model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
-
-        //     ourShader.setMat4("model", model);
-        //     ourModel.Draw(ourShader);
-
-        // }
-
-        //{
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
-        //    draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
-        //}
-
-        //vampire_animation
-        //{
-        //    aniShader.use();
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    aniShader.setMat4("projection", projection);
-        //    aniShader.setMat4("view", view);
-
-        //    auto transforms = animator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(0.0f, -0.4f, 0.0f)); // translate it down so it's at the center of the scene
-        //    model = glm::scale(model, glm::vec3(.5f, .5f, .5f));	// it's a bit too big for our scene, so scale it down
-        //    aniShader.setMat4("model", model);
-        //    aModel.Draw(aniShader);
-        //}
-
-        //chicken_animation
-        //{
-        //    aniShader.use();
-
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    aniShader.setMat4("projection", projection);
-        //    aniShader.setMat4("view", view);
-
-        //    auto transforms = animator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        aniShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-        //    model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
-        //    aniShader.setMat4("model", model);
-        //    aModel.Draw(aniShader);
-        //}
-
-
-        //bee_animation now not available
-        //{
-        //    beeShader.use();
-
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    beeShader.setMat4("projection", projection);
-        //    beeShader.setMat4("view", view);
-
-        //    auto transforms = beeAnimator.GetFinalBoneMatrices();
-        //    for (int i = 0; i < transforms.size(); ++i)
-        //        beeShader.setMat4("finalBonesMatrices[" + std::to_string(i) + "]", transforms[i]);
-
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    //model = glm::translate(model, glm::vec3(-3.75174f, -3.09131f, 9.10885f)); // translate it to the center of the scene
-        //    //model = glm::translate(model, glm::vec3(-10.0f, -8.0f, 5.0f));
-        //    //model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-        //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); // scale it down
-        //    beeShader.setMat4("model", model);
-        //    beeModel.Draw(beeShader);
-        //}
 
         // draw skybox as last
         {
