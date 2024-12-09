@@ -8,8 +8,10 @@
 - [Charles4731](https://github.com/Charles4731)
 
 
-**Loading Minecraft Cubes**
+**加载 Minecraft 方块模型**
+
 首先声明需要使用的方块
+
 ```cpp
 int main() {
     // ......
@@ -63,8 +65,9 @@ while (!glfwWindowShouldClose(window))
 }
 ```
 
+Over
 
-
+----
 
 **已完成部分**
 
