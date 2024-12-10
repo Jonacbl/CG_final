@@ -16,7 +16,7 @@ void main()
     vec3 color = texture(floorTexture, fs_in.TexCoords).rgb;
 
     // Ambient
-    vec3 ambient = 0.05 * color;
+    vec3 ambient = 0.2 * color;
 
     // Diffuse
     vec3 normalizedLightDirection = normalize(-lightDirection); 

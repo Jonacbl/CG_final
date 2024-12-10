@@ -153,14 +153,24 @@ int main()
 
     // load textures
     // -------------
+    //vector<std::string> faces
+    //{
+    //    "resources/textures/skybox/right.jpg",
+    //    "resources/textures/skybox/left.jpg",
+    //    "resources/textures/skybox/bottom.jpg", // SOS
+    //    "resources/textures/skybox/top.jpg", // SOS
+    //    "resources/textures/skybox/front.jpg",
+    //    "resources/textures/skybox/back.jpg"
+    //};
+
     vector<std::string> faces
     {
-        "resources/textures/skybox/right.jpg",
-        "resources/textures/skybox/left.jpg",
-        "resources/textures/skybox/bottom.jpg", // SOS
-        "resources/textures/skybox/top.jpg", // SOS
-        "resources/textures/skybox/front.jpg",
-        "resources/textures/skybox/back.jpg"
+        "resources/textures/cosmic/skybox_left.png",
+        "resources/textures/cosmic/skybox_right.png",
+        "resources/textures/cosmic/skybox_down.png",
+        "resources/textures/cosmic/skybox_up.png",
+        "resources/textures/cosmic/skybox_front.png",
+        "resources/textures/cosmic/skybox_back.png"
     };
     unsigned int cubemapTexture = loadCubemap(faces);
 
