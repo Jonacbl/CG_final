@@ -1,0 +1,262 @@
+[33mcommit 7fa46864465d4276a92e16e786f3a18cbda000ed[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: a859e34 ee9fc86
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Mon Dec 9 21:07:12 2024 +0800
+
+    new
+
+[33mcommit a859e3401c08da20b4ec928db822f22b6365df87[m
+Merge: da3529d f6caea1
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Mon Dec 9 20:57:01 2024 +0800
+
+    integration
+
+[33mcommit f6caea1c753c5ad154abdd786fcd3511b6923d6a[m[33m ([m[1;31morigin/test_minecraft_cube[m[33m)[m
+Author: baiheyufei <BaiHeYuFei@outlook.com>
+Date:   Mon Dec 9 20:02:14 2024 +0800
+
+    docs(README): update Chinese translation and improve content structure
+
+[33mcommit 69c6f35efb51e086494d63f3e856e2a392797843[m
+Author: baiheyufei <BaiHeYuFei@outlook.com>
+Date:   Mon Dec 9 20:00:06 2024 +0800
+
+    docs(README): update cube drawing documentation
+    
+    - Remove unnecessary code and improve formatting in README
+    - Add detailed instructions for loading and drawing Minecraft cubes
+    - Update main.cpp to demonstrate cube drawing usage
+    - Remove unused cube_utils.h file
+
+[33mcommit 9496a2f8438ce4615538e07b9189f4a6b6e341aa[m
+Author: baiheyufei <BaiHeYuFei@outlook.com>
+Date:   Mon Dec 9 19:38:39 2024 +0800
+
+    feat: implement cube rendering logic and add new cube models
+
+[33mcommit ee9fc868f45d2723315adefeaa675dc79b4c0462[m
+Author: lagrange <115907235+lxl1437@users.noreply.github.com>
+Date:   Mon Dec 9 16:22:48 2024 +0800
+
+    Update README.md
+
+[33mcommit da3529daa9345c5196f042f7c73ef1eb211e9ad7[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Sun Dec 8 22:50:42 2024 +0800
+
+    modify
+
+[33mcommit 0a23ca8a3f31e3aa701d92883ce985375448efcb[m[33m ([m[1;31morigin/shadow_shader[m[33m)[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:41:13 2024 +0800
+
+    add_dll
+
+[33mcommit ebae2798fc47edfaff3ae4fe3658565f761fc5a3[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:37:47 2024 +0800
+
+    README
+
+[33mcommit 19c79d6e28955d0f5abf6557dab58de2fafe5024[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:36:17 2024 +0800
+
+    modified gitignore
+
+[33mcommit ba888a4aeaf67ee430119f9ec9b4195995bc438f[m
+Merge: 4f4055f 7a654fa
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:20:22 2024 +0800
+
+    modified
+
+[33mcommit 4f4055fb48f0a82c839c7e25a1e1de22f642aead[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:13:08 2024 +0800
+
+    blinn-phong
+
+[33mcommit 7a654fa7f3b6f0fa457bf180f6e6cb58e7bca63b[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:08:27 2024 +0800
+
+    Update README.md
+
+[33mcommit 126028617c6743ed8202ab63a5dac51eaa2aae5d[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:06:12 2024 +0800
+
+    blinn-phong
+
+[33mcommit a898f8dd78913fe3b0e68ee14478553d680d68d8[m
+Merge: bafe99a 2f46c88
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 13:04:41 2024 +0800
+
+    Merge branch 'main' of https://github.com/Jonacbl/CG_final
+
+[33mcommit bafe99af6279a40dabd12b271f6e787f759c19fe[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 12:57:24 2024 +0800
+
+    blinn-phong
+
+[33mcommit c21cf6451cd8a9494ad4f408ed55834cb2992e1b[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Dec 6 12:50:48 2024 +0800
+
+    blinn-phong
+
+[33mcommit 2f46c8857055cd09109322b8d9a2e453a7912c56[m
+Author: lagrange <115907235+lxl1437@users.noreply.github.com>
+Date:   Fri Dec 6 11:38:58 2024 +0800
+
+    Update README.md
+
+[33mcommit 1559b1ae71efcd2e6d50d05da28125670b922b32[m
+Author: lagrange <115907235+lxl1437@users.noreply.github.com>
+Date:   Fri Dec 6 11:38:36 2024 +0800
+
+    Update README.md
+
+[33mcommit be3041dc5ea327c4b31ce039054ca5f6e7193e34[m
+Author: lagrange <115907235+lxl1437@users.noreply.github.com>
+Date:   Fri Dec 6 11:36:23 2024 +0800
+
+    Update README.md
+
+[33mcommit 881daeb833209af95fe240876fb9c472d364e93d[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 19:22:36 2024 +0800
+
+    Update README.md
+
+[33mcommit 75d40f0a50ae1eb5dee0925ca22f6357b8a86330[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 19:19:58 2024 +0800
+
+    bee abortion
+
+[33mcommit e0877429d2ac888279283ba50e70a7a321b9d186[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 19:18:34 2024 +0800
+
+    collaborators
+
+[33mcommit ba022f1e3b7d95469a9a8438dd4ecad024c8afe6[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 17:38:18 2024 +0800
+
+    bee abortion
+
+[33mcommit 9ecbb9d236dbf07854577b21fd885bc1c6253f8a[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 17:17:32 2024 +0800
+
+    nothing
+
+[33mcommit cb0aa0a9658f90c768a1778b1f198f8b57d46cf4[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Dec 4 00:18:51 2024 +0800
+
+    basic scenario
+
+[33mcommit 4bb3a59ef4f3e60a7129fb52ceaece86467e9867[m
+Author: lxl1437 <1350698032@qq.com>
+Date:   Tue Dec 3 22:27:53 2024 +0800
+
+    sky is the limit
+
+[33mcommit c0a64ee41ce79cca584b687e44df02e9262c1db0[m
+Author: lxl1437 <1350698032@qq.com>
+Date:   Tue Dec 3 22:24:02 2024 +0800
+
+    Move large file to Git LFS
+
+[33mcommit f6221c93f07e82e8bc089e6ac12afb5699cad89d[m
+Merge: f91f661 36d16e1
+Author: lxl1437 <1350698032@qq.com>
+Date:   Tue Dec 3 22:07:24 2024 +0800
+
+    Merge branch 'main' of https://github.com/Jonacbl/CG_final
+
+[33mcommit f91f661c5bd432215fda8ba56c31749d5dec74c5[m
+Author: lxl1437 <1350698032@qq.com>
+Date:   Tue Dec 3 21:58:00 2024 +0800
+
+    sky is the limit
+
+[33mcommit 36d16e1255572808de5d3590e50aedb93da037d5[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Sat Nov 30 00:49:01 2024 +0800
+
+    Update README.md 11.30
+
+[33mcommit 619a94c13fc4f5b22dcfd597defd8bcce20948fd[m
+Author: lxl1437 <1350698032@qq.com>
+Date:   Fri Nov 29 14:52:07 2024 +0800
+
+    testForLxlsJoining
+
+[33mcommit 5b03d29a26860dc1ba4bbd5823d0af6d91a4a73e[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Nov 29 13:36:21 2024 +0800
+
+    Update README.md
+
+[33mcommit 353ae55c8fc1112691460ffa49bebe601292b2d8[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Nov 29 13:35:56 2024 +0800
+
+    Update README.md
+
+[33mcommit db27e348e7014bc1e6cdb84577c150b983a29afe[m
+Merge: 57d3192 e29ba30
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Nov 29 13:31:17 2024 +0800
+
+    Merge branch 'main' of https://github.com/Jonacbl/CG_final
+
+[33mcommit 57d31922ced71cbf054772eaa555d33a2c14196b[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Fri Nov 29 11:39:07 2024 +0800
+
+    24.11.29
+
+[33mcommit e29ba30e7a4fecc5fcaf84c59d85f4a10ffe18cf[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 17:56:14 2024 +0800
+
+    2
+
+[33mcommit 9a708730733e89ac84469e418f156858840ae6a7[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 17:54:51 2024 +0800
+
+    2
+
+[33mcommit 021d97577a8edff1b2e7a8fcb5b70499892a1225[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 17:49:09 2024 +0800
+
+    1
+
+[33mcommit d4773dcfb5651fa2283d863da8f8fe1e53a9d6f7[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 17:46:36 2024 +0800
+
+    modified
+
+[33mcommit 258f20a446bf91a676d2c1377ca8c64d51330bbc[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 17:38:32 2024 +0800
+
+    hello
+
+[33mcommit 84365f0b5b115e85c23f45a3cca8b90e620742a5[m
+Author: Jonacbl <chenblin23@mail2.sysu.edu.cn>
+Date:   Wed Nov 27 16:56:24 2024 +0800
+
+    with assimp
