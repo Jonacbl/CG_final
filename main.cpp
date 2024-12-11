@@ -153,25 +153,25 @@ int main()
 
     // load textures
     // -------------
-    //vector<std::string> faces
-    //{
-    //    "resources/textures/skybox/right.jpg",
-    //    "resources/textures/skybox/left.jpg",
-    //    "resources/textures/skybox/bottom.jpg", // SOS
-    //    "resources/textures/skybox/top.jpg", // SOS
-    //    "resources/textures/skybox/front.jpg",
-    //    "resources/textures/skybox/back.jpg"
-    //};
-
-    vector<std::string> faces
+    std::vector<std::string> faces
     {
-        "resources/textures/cosmic/skybox_left.png",
-        "resources/textures/cosmic/skybox_right.png",
-        "resources/textures/cosmic/skybox_down.png",
-        "resources/textures/cosmic/skybox_up.png",
-        "resources/textures/cosmic/skybox_front.png",
-        "resources/textures/cosmic/skybox_back.png"
+        "resources/textures/clouds/clouds1_east.bmp",   // 东
+        "resources/textures/clouds/clouds1_west.bmp",   // 西
+        "resources/textures/clouds/clouds1_down.bmp",   // 下
+        "resources/textures/clouds/clouds1_up.bmp",     // 上
+        "resources/textures/clouds/clouds1_north.bmp",  // 北
+        "resources/textures/clouds/clouds1_south.bmp",  // 南
     };
+
+    //std::vector<std::string> faces
+    //{
+    //    "resources/textures/park-skyboxes/Park2/posx.jpg",  // 右
+    //    "resources/textures/park-skyboxes/Park2/negx.jpg",  // 左
+    //    "resources/textures/park-skyboxes/Park2/negy.jpg",  // 下
+    //    "resources/textures/park-skyboxes/Park2/posy.jpg",  // 上
+    //    "resources/textures/park-skyboxes/Park2/posz.jpg",  // 前
+    //    "resources/textures/park-skyboxes/Park2/negz.jpg"   // 后
+    //};
     unsigned int cubemapTexture = loadCubemap(faces);
 
     // shader configuration
@@ -265,7 +265,7 @@ int main()
         glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-         // render a ground with `grass cube`
+        // render a ground with `grass cube`
         {
             groundShader.use();
             glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
