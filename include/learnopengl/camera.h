@@ -82,6 +82,11 @@ public:
             Position += Up * velocity;
         if (direction == DOWN)
             Position -= Up * velocity;
+
+        // 限制摄像机高度不能低于地板
+        const float minHeight = 0.0f;
+        if (Position.y < minHeight)
+            Position.y = minHeight;
     }
 
     // processes input received from a mouse input system. Expects the offset value in both the x and y direction.
