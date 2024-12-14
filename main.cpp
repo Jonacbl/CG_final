@@ -184,13 +184,13 @@ int main()
     // -----------
     Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
     ourModel.CalculateCenter();
-    
 
-    Model aModel("resources/chicken-rig/source/Chicken.FBX");
-    Animation danceAnimation("resources/chicken-rig/source/Chicken.FBX", &aModel);
+
+    Model bModel("resources/minecraft_chest/scene.gltf");
+    Animation danceAnimation("resources/minecraft_chest/scene.gltf", &bModel);
     Animator animator(&danceAnimation);
-    aModel.CalculateCenter();
-
+    bModel.CalculateCenter();
+    
 
     //minecraft_cube
     Model grass_cube("resources/grass_cube/scene.gltf");
@@ -309,7 +309,7 @@ int main()
 
         }
 
-        //chicken_animation
+         //chest_animation
         {
             aniShader.use();
 
@@ -326,13 +326,11 @@ int main()
 
             // render the loaded model
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(-0.0397672f, 4.08026f, -22.3267f)); // translate it to the center of the scene
-            model = glm::translate(model, glm::vec3(-20.0f, -4.5f, -15.0f));
-            model = glm::rotate(model, glm::radians(135.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); // rotate 90 degrees around the X axis
-            model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f)); // scale it down
+            model = glm::translate(model, glm::vec3(0.0f, 0.3f, 0.0f)); // higher
+            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); // rotate some degrees around the Y axis
+            model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f)); // scale it down
             aniShader.setMat4("model", model);
-            aModel.Draw(aniShader);
+            bModel.Draw(aniShader);
         }
 
         // draw skybox as last
@@ -350,7 +348,6 @@ int main()
             glDrawArrays(GL_TRIANGLES, 0, 36);
             glBindVertexArray(0);
             glDepthFunc(GL_LESS); // set depth function back to default
-
         }
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
