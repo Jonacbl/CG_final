@@ -1,0 +1,11 @@
+Model Information:
+* title:	Minecraft abbey
+* source:	https://sketchfab.com/3d-models/minecraft-abbey-aba07d175e3f46af80efad2e9d1b0bb6
+* author:	RH (https://sketchfab.com/rhoce)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Minecraft abbey" (https://sketchfab.com/3d-models/minecraft-abbey-aba07d175e3f46af80efad2e9d1b0bb6) by RH (https://sketchfab.com/rhoce) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
