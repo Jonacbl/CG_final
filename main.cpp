@@ -155,22 +155,22 @@ int main()
     // -------------
     std::vector<std::string> faces
     {
-        "resources/textures/clouds/clouds1_east.bmp",   // ¶«
-        "resources/textures/clouds/clouds1_west.bmp",   // Î÷
-        "resources/textures/clouds/clouds1_down.bmp",   // ÏÂ
-        "resources/textures/clouds/clouds1_up.bmp",     // ÉÏ
-        "resources/textures/clouds/clouds1_north.bmp",  // ±±
-        "resources/textures/clouds/clouds1_south.bmp",  // ÄÏ
+        "resources/textures/clouds/clouds1_east.bmp",   // ï¿½ï¿½
+        "resources/textures/clouds/clouds1_west.bmp",   // ï¿½ï¿½
+        "resources/textures/clouds/clouds1_down.bmp",   // ï¿½ï¿½
+        "resources/textures/clouds/clouds1_up.bmp",     // ï¿½ï¿½
+        "resources/textures/clouds/clouds1_north.bmp",  // ï¿½ï¿½
+        "resources/textures/clouds/clouds1_south.bmp",  // ï¿½ï¿½
     };
 
     //std::vector<std::string> faces
     //{
-    //    "resources/textures/park-skyboxes/Park2/posx.jpg",  // ÓÒ
-    //    "resources/textures/park-skyboxes/Park2/negx.jpg",  // ×ó
-    //    "resources/textures/park-skyboxes/Park2/negy.jpg",  // ÏÂ
-    //    "resources/textures/park-skyboxes/Park2/posy.jpg",  // ÉÏ
+    //    "resources/textures/park-skyboxes/Park2/posx.jpg",  // ï¿½ï¿½
+    //    "resources/textures/park-skyboxes/Park2/negx.jpg",  // ï¿½ï¿½
+    //    "resources/textures/park-skyboxes/Park2/negy.jpg",  // ï¿½ï¿½
+    //    "resources/textures/park-skyboxes/Park2/posy.jpg",  // ï¿½ï¿½
     //    "resources/textures/park-skyboxes/Park2/posz.jpg",  // Ç°
-    //    "resources/textures/park-skyboxes/Park2/negz.jpg"   // ºó
+    //    "resources/textures/park-skyboxes/Park2/negz.jpg"   // ï¿½ï¿½
     //};
     unsigned int cubemapTexture = loadCubemap(faces);
 
@@ -182,7 +182,8 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
+    // Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
+        Model ourModel("resources/abbey/scene.gltf");
     ourModel.CalculateCenter();
     
 
@@ -209,7 +210,7 @@ int main()
         // Calculate world position of the cube according to i
         int row = i / size;
         int col = i % size;
-        model = glm::translate(model, glm::vec3(static_cast<float>(col) - static_cast<float>(size)/2.0f, -2.0f, static_cast<float>(row) - static_cast<float>(size) / 2.0f));
+        model = glm::translate(model, glm::vec3(static_cast<float>(col) - static_cast<float>(size)/2.0f, -1.0f, static_cast<float>(row) - static_cast<float>(size) / 2.0f));
         model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 
         groundModelMatrices[i] = model;
@@ -299,10 +300,11 @@ int main()
 
             // render the loaded model
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(0.0f, 1.0f, -50.0f)); // far away from camera
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
+            model = glm::translate(model, glm::vec3(0.00898295f, -1.0f + 0.0819152f, 0.346726f)); // translate it to the center
+            model = glm::translate(model, glm::vec3(0.0f, 0.0f, -100.0f)); // far away from camera
+            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+            model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 0.0f, 1.0f)); //rotate
+            model = glm::scale(model, glm::vec3(75.0f, 75.0f, 75.0f));	// it's a bit too big for our scene, so scale it down
 
             ourShader.setMat4("model", model);
             ourModel.Draw(ourShader);
