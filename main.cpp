@@ -186,10 +186,10 @@ int main()
     Model ourModel("resources/abbey/scene.gltf");
     ourModel.CalculateCenter();
     
-    Model table_and_chair("resources/table-and-chairs/source/Combo.dae");
-    table_and_chair.CalculateCenter();
+    //Model table_and_chair("resources/table-and-chairs/source/Combo.dae");
+    //table_and_chair.CalculateCenter();
 
-    Model bench("resources/bench-minecraft/source/model.gltf");
+    Model bench("resources/bench_minecraft/scene.gltf");
     bench.CalculateCenter();
 
     //Model rock("resources/rock/rock_base_LP.obj");
@@ -342,31 +342,6 @@ int main()
         }
 
         //table and chairs
-        {
-            ourShader.use();
-
-            // view/projection transformations
-            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-            glm::mat4 view = camera.GetViewMatrix();
-            ourShader.setMat4("projection", projection);
-            ourShader.setMat4("view", view);
-            ourShader.setVec3("viewPos", camera.Position);
-            ourShader.setVec3("lightDirection", lightDir);
-
-            // render the loaded model
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(0.672699f, 3.19014f, -1.056f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(-30.0f, -3.0f, 10.0f)); // switch to proper place
-            model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
-
-            ourShader.setMat4("model", model);
-            table_and_chair.Draw(ourShader);
-
-        }
-
-        // bench
         //{
         //    ourShader.use();
 
@@ -381,41 +356,40 @@ int main()
         //    // render the loaded model
         //    glm::mat4 model = glm::mat4(1.0f);
         //    model = glm::translate(model, glm::vec3(0.672699f, 3.19014f, -1.056f)); // translate it to the center
-        //    model = glm::translate(model, glm::vec3(-30.0f, -3.0f, 30.0f)); // switch to proper place
-        //    //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+        //    model = glm::translate(model, glm::vec3(-30.0f, -3.0f, 10.0f)); // switch to proper place
+        //    model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
         //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
 
         //    ourShader.setMat4("model", model);
-        //    bench.Draw(ourShader);
+        //    table_and_chair.Draw(ourShader);
 
         //}
 
-        //rock
-        //{
-        //    ourShader.use();
+        // bench
+        {
+            ourShader.use();
 
-        //    // view/projection transformations
-        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        //    glm::mat4 view = camera.GetViewMatrix();
-        //    ourShader.setMat4("projection", projection);
-        //    ourShader.setMat4("view", view);
-        //    ourShader.setVec3("viewPos", camera.Position);
-        //    ourShader.setVec3("lightDirection", lightDir);
+            // view/projection transformations
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            ourShader.setMat4("projection", projection);
+            ourShader.setMat4("view", view);
+            ourShader.setVec3("viewPos", camera.Position);
+            ourShader.setVec3("lightDirection", lightDir);
 
-        //    // render the loaded model
-        //    glm::mat4 model = glm::mat4(1.0f);
-        //    model = glm::translate(model, glm::vec3(-1.20083f, -0.134133f, 1.93921f)); // translate it to the center
-        //    model = glm::translate(model, glm::vec3(-30.0f, -2.0f, -0.0f)); // switch to proper place
-        //    //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-        //    //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
-        //    model = glm::scale(model, glm::vec3(0.01f, 0.01f, 0.01f));	// it's a bit too big for our scene, so scale it down
+            // render the loaded model
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, glm::vec3(0.672699f, 3.19014f, -1.056f)); // translate it to the center
+            model = glm::translate(model, glm::vec3(0.0f, 0.0f, 5.0f)); // switch to proper place
+            //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+            //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+            model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
 
-        //    ourShader.setMat4("model", model);
-        //    rock.Draw(ourShader);
+            ourShader.setMat4("model", model);
+            bench.Draw(ourShader);
 
-        //}
-
+        }
 
          //chest_animation
         {
