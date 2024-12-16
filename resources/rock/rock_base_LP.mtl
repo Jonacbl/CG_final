@@ -1,0 +1,16 @@
+newmtl lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd test_lambert2SG_BaseColor.png
+map_Ka test_lambert2SG_Height.png
+bump test_lambert2SG_Normal.png -bm 0.548387
+Ni 1.00
+newmtl lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd -s 0.5 0.5 TexturesCom_Farmland0035_1_seamless_S.jpg
+Ni 1.00

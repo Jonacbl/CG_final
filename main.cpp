@@ -179,16 +179,23 @@ int main()
 
     // load models
     // -----------
-    Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
+    //Model ourModel("resources/autumn-house/source/House_scene_01.fbx");
+    Model ourModel("resources/abbey/scene.gltf");
     ourModel.CalculateCenter();
+    
+    //Model table_and_chair("resources/table-and-chairs/source/Combo.dae");
+    //table_and_chair.CalculateCenter();
 
+    Model bench("resources/bench_minecraft/scene.gltf");
+    bench.CalculateCenter();
+
+    //Model rock("resources/rock/rock_base_LP.obj");
+    //rock.CalculateCenter();
 
     Model bModel("resources/minecraft_chest/scene.gltf");
     Animation danceAnimation("resources/minecraft_chest/scene.gltf", &bModel);
     Animator animator(&danceAnimation);
-    bModel.CalculateCenter();
     
-
     //minecraft_cube
     Model grass_cube("resources/grass_cube/scene.gltf");
     Model stone_cube("resources/stone_cube/scene.gltf");
@@ -254,8 +261,8 @@ int main()
         // input
         // -----
         processInput(window);
-		  animator.UpdateAnimation(deltaTime/1.5f);
-
+		  //animator.UpdateAnimation(deltaTime/1.5f);
+          animator.UpdateAnimation(deltaTime);
  
         // render
         // ------
@@ -283,6 +290,80 @@ int main()
         }
 
         //static model of House
+        //{
+        //    ourShader.use();
+
+        //    // view/projection transformations
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = camera.GetViewMatrix();
+        //    ourShader.setMat4("projection", projection);
+        //    ourShader.setMat4("view", view);
+        //    ourShader.setVec3("viewPos", camera.Position);
+        //    ourShader.setVec3("lightDirection", lightDir);
+
+        //    // render the loaded model
+        //    glm::mat4 model = glm::mat4(1.0f);
+        //    model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
+        //    model = glm::translate(model, glm::vec3(0.0f, 1.0f, -50.0f)); // far away from camera
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+        //    model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
+
+        //    ourShader.setMat4("model", model);
+        //    ourModel.Draw(ourShader);
+
+        //}
+
+        //abbey
+        {
+            ourShader.use();
+
+            // view/projection transformations
+            glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 125.0f);
+            glm::mat4 view = camera.GetViewMatrix();
+            ourShader.setMat4("projection", projection);
+            ourShader.setMat4("view", view);
+            ourShader.setVec3("viewPos", camera.Position);
+            ourShader.setVec3("lightDirection", lightDir);
+
+            // render the loaded model
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, glm::vec3(0.00898295f, -1.0f + 0.0819152f, 0.346726f)); // translate it to the center
+            model = glm::translate(model, glm::vec3(0.0f, 0.0f, -100.0f)); // far away from camera
+            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+            model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 0.0f, 1.0f)); //rotate
+            model = glm::scale(model, glm::vec3(75.0f, 75.0f, 75.0f));	// it's a bit too big for our scene, so scale it down
+
+            ourShader.setMat4("model", model);
+            ourModel.Draw(ourShader);
+
+        }
+
+        //table and chairs
+        //{
+        //    ourShader.use();
+
+        //    // view/projection transformations
+        //    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+        //    glm::mat4 view = camera.GetViewMatrix();
+        //    ourShader.setMat4("projection", projection);
+        //    ourShader.setMat4("view", view);
+        //    ourShader.setVec3("viewPos", camera.Position);
+        //    ourShader.setVec3("lightDirection", lightDir);
+
+        //    // render the loaded model
+        //    glm::mat4 model = glm::mat4(1.0f);
+        //    model = glm::translate(model, glm::vec3(0.672699f, 3.19014f, -1.056f)); // translate it to the center
+        //    model = glm::translate(model, glm::vec3(-30.0f, -3.0f, 10.0f)); // switch to proper place
+        //    model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+        //    model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+        //    model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
+
+        //    ourShader.setMat4("model", model);
+        //    table_and_chair.Draw(ourShader);
+
+        //}
+
+        // bench
         {
             ourShader.use();
 
@@ -296,13 +377,14 @@ int main()
 
             // render the loaded model
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, glm::vec3(1.07109f, -5.22503f, 3.59047f)); // translate it to the center
-            model = glm::translate(model, glm::vec3(0.0f, 1.0f, -50.0f)); // far away from camera
-            model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
-            model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));	// it's a bit too big for our scene, so scale it down
+            model = glm::translate(model, glm::vec3(0.672699f, 3.19014f, -1.056f)); // translate it to the center
+            model = glm::translate(model, glm::vec3(0.0f, 0.0f, 5.0f)); // switch to proper place
+            //model = glm::rotate(model, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f)); //rotate
+            //model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f)); //rotate
+            model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));	// it's a bit too big for our scene, so scale it down
 
             ourShader.setMat4("model", model);
-            ourModel.Draw(ourShader);
+            bench.Draw(ourShader);
 
         }
 

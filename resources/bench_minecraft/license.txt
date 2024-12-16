@@ -1,0 +1,11 @@
+Model Information:
+* title:	Bench [Minecraft]
+* source:	https://sketchfab.com/3d-models/bench-minecraft-b594dc66811c4a8baf2cd5ccd6768530
+* author:	sedona1029 (https://sketchfab.com/sedona1029)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Bench [Minecraft]" (https://sketchfab.com/3d-models/bench-minecraft-b594dc66811c4a8baf2cd5ccd6768530) by sedona1029 (https://sketchfab.com/sedona1029) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
