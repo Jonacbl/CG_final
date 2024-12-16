@@ -20,7 +20,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow* window);
 unsigned int loadCubemap(vector<std::string> faces);
-void draw_cube(Shader& ourShader, Camera& camera, glm::vec3 lightDir, glm::vec3 worldPos, Model cube, bool ro = false);
 
 // settings
 const unsigned int SCR_WIDTH = 1600;
@@ -177,8 +176,6 @@ int main()
     // shader configuration
     // --------------------
 
-    skyboxShader.use();
-    skyboxShader.setInt("skybox", 0);
 
     // load models
     // -----------
@@ -460,34 +457,4 @@ unsigned int loadCubemap(vector<std::string> faces)
     glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
 
     return textureID;
-}
-
-/// @brief Draw a cube, at the given position, read README for more details
-/// @param ourShader shader
-/// @param camera    camera
-/// @param lightDir  light direction
-/// @param worldPos  world position of to draw the model
-/// @param cube      cube model
-/// @param ro        a control flag, by default false
-void draw_cube(Shader& ourShader, Camera& camera, glm::vec3 lightDir, glm::vec3 worldPos, Model cube, bool ro) {
-    ourShader.use();
-
-    glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-    glm::mat4 view = camera.GetViewMatrix();
-    ourShader.setMat4("projection", projection);
-    ourShader.setMat4("view", view);
-    ourShader.setVec3("viewPos", camera.Position);
-    ourShader.setVec3("lightDirection", lightDir);
-
-    glm::mat4 modelMatrix = glm::mat4(1.0f);
-
-    modelMatrix = glm::translate(modelMatrix, worldPos);
-    modelMatrix = glm::translate(modelMatrix, camera.Position);
-    if (ro) {
-        modelMatrix = glm::rotate(modelMatrix, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-    }
-    modelMatrix = glm::scale(modelMatrix, glm::vec3(0.5f, 0.5f, 0.5f));
-    ourShader.setMat4("model", modelMatrix);
-
-    cube.Draw(ourShader);
 }
