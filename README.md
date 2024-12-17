@@ -1,4 +1,4 @@
-### Final Project for Computer Graphic of SYSU in 2024 fall
+![92463fe84fe722050ea1dc3b61b22d1](https://github.com/user-attachments/assets/d27418b7-140f-4302-a64c-fe78f78a46fc)### Final Project for Computer Graphic of SYSU in 2024 fall
 
 **Group 17**
 
@@ -11,103 +11,43 @@
 - [BaiHYF](https://github.com/BaiHYF)
 - [Charles4731](https://github.com/Charles4731)
 
-
-
 ----
 
-**已完成部分**
+#### 实验内容
+---
+##### 小组选题
+使用OpenGL搭建并渲染一个MC城堡的场景。
 
-- `assimp`加载静态模型
-- `assimp`加载动态模型
-- `skybox`加载天空盒
+##### 实现内容
+- **模型文件加载**：使用Assimp库加载静态模型文件。
+- **动画模型加载**：使用Assimp库加载骨骼动画模型文件。
+- **实例化**：使用实例化渲染大片重复内容。
+- **天空盒背景**：使用立方体贴图实现天空盒背景。
+- **Blinn-Phong光照**：实现Blinn-Phong光照明模型。
+- **交互摄像机**：通过键盘输入可以实现照相机的移动，鼠标滚轮实现拉近效果。
 
-- `blinn-phong`模型光照
-- 实例化`Minecraft`草方块
+##### 实验环境
+- **操作系统**：Windows 11
+- **开发工具**：Visual Studio 2022
+- **编程语言**：C++17及以上
+- **OpenGL版本**：OpenGL 3.3及以上
+- **依赖库**：
+    - **GLFW**：用于创建窗口和管理OpenGL上下文。
+    - **glad**：OpenGL扩展加载库。
+    - **glm**：用于矩阵、向量、变换等数学计算的库。
+    - **assimp**：用于加载静态和动画模型文件。
+    - **stb_image**：用于加载纹理图片。
 
+#### 最终实现效果
 
+加载了所有的所需要的静态模型：城堡、长椅等，以及动画模型：宝箱怪。实例化的草地和阳光明媚的天空盒。最终运行的结果如下：
 
-
-
-#### 环境配置
-
-在**解决方案资源管理器右键**-**属性**添加对应的**包含文件**路径和**库文件**路径：
-
-```
-./include
-./lib
-```
-
-![](./README/include.png)
-
-链接器-输入中添加：
-
-```
-glfw3.lib
-assimp-vc143-mtd.lib
-```
-
-![](./README/linker.png)
-
-即可在`.sln`运行中运行。
+![](finalScene.png)!
 
 
-#### 加载 Minecraft 方块模型
+#### 相关参考网站
 
-首先声明需要使用的方块
+1. [LearnOpenGL CN](https://learnopengl-cn.github.io/) : 提供了`OpenGL`基本理论及其实现。
+2. [Sketchfab](https://sketchfab.com/feed)：包含大量免费可下载的静态模型和动画模型。
+3. [编译安装Assimp on CSDN](https://blog.csdn.net/guoguojune/article/details/130344278): 提供了assimp编译以及链接到`OpenGL`项目的教程。
 
-```cpp
-int main() {
-    // ......
-    // load models
-    Model grass_cube("resources/grass_cube/scene.gltf");
-    Model stone_cube("resources/stone_cube/scene.gltf");
-    Model wood_cube("resources/wood_cube/scene.gltf");
-    Model brick_cube("resources/brick_cube/scene.gltf");
-    Model stone_brick_cube("resources/stone_brick_cube/scene.gltf");
-    Model sand_cube("resources/sand_cube/scene.gltf");
-
-    // .......
-}
-```
-
-之后在渲染循环中使用 `draw_cube` 函数，在指定位置绘制对应的方块。
-
-参数说明:
-
-```cpp
-void draw_cube(Shader &ourShader, Camera &camera, glm::vec3 lightDir, glm::vec3 worldPos, Model cube, bool ro=false)
-```
-
-前三个 `shader`, `camera`, `lightDir` 应该不用改，直接用前面代码定义的即可。
-
-- `worldPos` 为将被绘制方块的 世界坐标(World position)
-- `cube` 就是要绘制的方块模型，可以是 grass_cube, stone_cube, wood_cube, brick_cube, stone_brick_cube, sand_cube 之一，目前我只加了这几个。
-- `ro` 目前是一个 bool 值，仅在 cube 为 grass_cube 或 wood_cube 时需被设置为 true
-
-```cpp
-// main.cpp
-
-while (!glfwWindowShouldClose(window))
-{
-    // ......
-
-    // render
-    // ------
-    glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
-    {
-        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 3.0f), grass_cube, true);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 3.0f), brick_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 3.0f), stone_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(3.0f, -5.0f, 2.0f), stone_brick_cube);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(2.0f, -5.0f, 2.0f), wood_cube, true);
-        draw_cube(ourShader, camera, lightDir, glm::vec3(1.0f, -5.0f, 2.0f), sand_cube);
-    }
-
-    ...
-}
-```
-
-Over
