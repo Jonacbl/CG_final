@@ -49,12 +49,6 @@
     <None Include="shader\ani_shader.vs">
       <Filter>资源文件</Filter>
     </None>
-    <None Include="shader\cubemaps.fs">
-      <Filter>资源文件</Filter>
-    </None>
-    <None Include="shader\cubemaps.vs">
-      <Filter>资源文件</Filter>
-    </None>
     <None Include="shader\fragment.fs">
       <Filter>资源文件</Filter>
     </None>
@@ -71,6 +65,12 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="shader\blinn-phong.vs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\ground.fs">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="shader\ground.vs">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

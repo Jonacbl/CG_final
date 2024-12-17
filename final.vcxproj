@@ -74,6 +74,10 @@
     <IncludePath>.\include;$(IncludePath)</IncludePath>
     <LibraryPath>.\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ExternalIncludePath>C:\Users\lenovo\Desktop\files\CG\CGAssignmentFinal\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>C:\Users\lenovo\Desktop\files\CG\CGAssignmentFinal\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -129,6 +133,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;
+assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -148,9 +154,9 @@
     <None Include="shader\ani_shader.vs" />
     <None Include="shader\blinn-phong.fs" />
     <None Include="shader\blinn-phong.vs" />
-    <None Include="shader\cubemaps.fs" />
-    <None Include="shader\cubemaps.vs" />
     <None Include="shader\fragment.fs" />
+    <None Include="shader\ground.fs" />
+    <None Include="shader\ground.vs" />
     <None Include="shader\skybox.fs" />
     <None Include="shader\skybox.vs" />
     <None Include="shader\vertex.vs" />
