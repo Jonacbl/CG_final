@@ -42,12 +42,11 @@
 
 加载了所有的所需要的静态模型：城堡、长椅等，以及动画模型：宝箱怪。实例化的草地和阳光明媚的天空盒。最终运行的结果如下：
 
-![](finalScene.png)!
-
+![final scene](https://github.com/user-attachments/assets/5820360f-f468-4251-92b1-602393807193)
 
 #### 相关参考网站
 
 1. [LearnOpenGL CN](https://learnopengl-cn.github.io/) : 提供了`OpenGL`基本理论及其实现。
 2. [Sketchfab](https://sketchfab.com/feed)：包含大量免费可下载的静态模型和动画模型。
 3. [编译安装Assimp on CSDN](https://blog.csdn.net/guoguojune/article/details/130344278): 提供了assimp编译以及链接到`OpenGL`项目的教程。
-
+4. [opengameart](https://opengameart.org)：包含大量免费可下载的天空盒。
