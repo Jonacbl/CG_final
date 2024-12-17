@@ -47,6 +47,6 @@
 #### 相关参考网站
 
 1. [LearnOpenGL CN](https://learnopengl-cn.github.io/) : 提供了`OpenGL`基本理论及其实现。
-2. [Sketchfab](https://sketchfab.com/feed)：包含大量免费可下载的静态模型和动画模型。
-3. [编译安装Assimp on CSDN](https://blog.csdn.net/guoguojune/article/details/130344278): 提供了assimp编译以及链接到`OpenGL`项目的教程。
-4. [opengameart](https://opengameart.org)：包含大量免费可下载的天空盒。
+2. [编译安装Assimp on CSDN](https://blog.csdn.net/guoguojune/article/details/130344278): 提供了assimp编译以及链接到`OpenGL`项目的教程。
+3. [Sketchfab](https://sketchfab.com/feed)：包含大量免费可下载的静态模型和动画模型。
+4. [OpenGameArt](https://opengameart.org)：包含大量免费可下载的天空盒。
