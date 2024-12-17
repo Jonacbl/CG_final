@@ -1,4 +1,4 @@
-![92463fe84fe722050ea1dc3b61b22d1](https://github.com/user-attachments/assets/d27418b7-140f-4302-a64c-fe78f78a46fc)### Final Project for Computer Graphic of SYSU in 2024 fall
+### Final Project for Computer Graphic of SYSU in 2024 fall
 
 **Group 17**
 
