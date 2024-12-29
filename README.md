@@ -41,7 +41,7 @@
 
 
 
-具体实现请参考[README.pdf](./README.md)
+具体实现请参考[README.pdf](./README.pdf)
 
 
 
